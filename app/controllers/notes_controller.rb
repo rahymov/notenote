@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_action :find_note, only: [:show, :edit, :update, :destroy]
+  
   def new
     @note = current_user.notes.build
   end
@@ -34,7 +35,7 @@ class NotesController < ApplicationController
   end
 
   def index
-    @notes = Note.all.order("created_at DESC")
+    @notes = Note.where(user_id:current_user).order("created_at DESC")
   end
 
   private
