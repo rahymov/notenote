@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+@import "global.css.scss";
+@import "welcome.css.scss";
+
+
+.header_inner{
+	a{
+		img{
+			 width: 40px;
+  		height: 25px
+
+		}
+	}
+}

@@ -9,8 +9,23 @@
   </head>
 
   <body>
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <header>
+      <div class="header_inner navbar navbar-default nav">
+        <%= link_to image_tag('me.svg'), root_path, id: "logo" %>
+        <div class="nav pull-right">
+          <% if user_signed_in? %>
+            <%= link_to "New Note", new_note_path, class: "btn btn-default" %>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-default" %>
+          <% else %>
+            <%= link_to "Sign In", new_user_session_path, class: "btn btn-default" %>
+            <%= link_to "Sign Up ", new_user_regsitration_path, class: "btn btn-default" %>
+          <% end %>
+        </div>
+      </div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </header>
+  	
     <%= yield %>
   </body>
 </html>
